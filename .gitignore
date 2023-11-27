@@ -1,3 +1,17 @@
+token.json
+credentials.json
+
+*.aux
+*.log
+*.out
+*.pdf
+*.tex
+*.toc
+
+companies
+*.csv
+attachments/*
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

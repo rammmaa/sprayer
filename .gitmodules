@@ -1,0 +1,3 @@
+[submodule "sponsorship-proposal-documents"]
+	path = sponsorship-proposal-documents
+	url = https://github.com/icpc-sinchon/sponsorship-proposal-documents.git
