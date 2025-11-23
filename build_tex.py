@@ -3,10 +3,10 @@ import sys
 import os.path
 import subprocess
 
-from tool import change_name
+from utils import change_name
 
 def run(tex_file, company_name):
-    tmp_tex_file = "2024 겨울 신촌지역 대학교 프로그래밍 동아리 연합 후원기획서.tex"
+    tmp_tex_file = "2026 겨울 신촌지역 대학교 프로그래밍 동아리 연합 후원기획서.tex"
     with open(tex_file, 'r') as f:
         a = f.readlines()
         for i, l in enumerate(a):
@@ -17,7 +17,7 @@ def run(tex_file, company_name):
                 g.write(i)
 
     subprocess.run(["pdflatex", tmp_tex_file], stdout=subprocess.DEVNULL)
-    print("{company_name}: tex file generated")
+    print(f"{company_name}: tex file generated")
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:

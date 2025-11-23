@@ -1,6 +1,9 @@
 token.json
 credentials.json
 
+# macOS
+.DS_Store
+
 *.aux
 *.log
 *.out
