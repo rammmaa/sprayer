@@ -6,17 +6,14 @@ from email.mime.base import MIMEBase
 
 import base64
 
-import google.auth
 from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
 
 import typing
-import time
 
 import sys
 
-import subprocess
-from tool import change_name
+from utils import change_name
 import os.path
 
 import socket
@@ -36,6 +33,9 @@ def send_mail(to:str, content:str, attachments_names:typing.List[typing.Tuple[st
     msg.attach(part)
 
     for file, maintype, subtype in attachments_names:
+        if not os.path.exists(file):
+            print(f"Warning: Attachment file not found: {file}, skipping...")
+            continue
         part = MIMEBase(maintype, subtype)
         with open(file, "rb") as f:
             part = MIMEApplication(f.read(), _subtype=subtype)
@@ -56,8 +56,8 @@ def run(to, company):
 
     attachments = [
         ("attachments/SUAPC포스터초안.png", "image", "png"),
-        ("attachments/2024 겨울 신촌지역 대학교 프로그래밍 동아리 연합 홍보 자료 PPT.pdf", "application", "pdf"),
-        ("2024 겨울 신촌지역 대학교 프로그래밍 동아리 연합 후원기획서.pdf", "application", "pdf")
+        ("attachments/2026 겨울 신촌지역 대학교 프로그래밍 동아리 연합 홍보 자료 PPT.pdf", "application", "pdf"),
+        ("2026 겨울 신촌지역 대학교 프로그래밍 동아리 연합 후원기획서.pdf", "application", "pdf")
     ]
 
     print("Sending mail to:", to)
