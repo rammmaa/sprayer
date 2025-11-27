@@ -50,7 +50,7 @@ def send_mail(to:str, content:str, attachments_names:typing.List[typing.Tuple[st
 
 def run(to, company):
     content=""
-    with open("sponsorship-proposal-documents/mail/mail.html", "r", encoding="utf8") as f:
+    with open("sponsorship-proposal-documents/mail.html", "r", encoding="utf8") as f:
         for line in f.readlines():
             content += line.replace("@회사@", change_name(company))
 

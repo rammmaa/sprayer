@@ -16,7 +16,7 @@ def run(tex_file, company_name):
             for i in a:
                 g.write(i)
 
-    subprocess.run(["pdflatex", tmp_tex_file], stdout=subprocess.DEVNULL)
+    subprocess.run(["xelatex", tmp_tex_file], stdout=subprocess.DEVNULL)
     print(f"{company_name}: tex file generated")
 
 if __name__ == "__main__":
